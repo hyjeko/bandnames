@@ -42,9 +42,9 @@ class RandomWordsState extends State<RandomWords> {
 
   Widget _buildRow(WordPair pair) {
     final alreadySaved = _saved.contains(pair);
-    String firstName = _capitalize(pair.first);
-    String secondName = _capitalize(pair.second);
-    String bandname = 'The ' + firstName + ' ' + secondName;
+    final firstName = _capitalize(pair.first);
+    final secondName = _capitalize(pair.second);
+    final bandname = 'The ' + firstName + ' ' + secondName;
 
     return new ListTile(
       title: new Text(
