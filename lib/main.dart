@@ -25,6 +25,8 @@ class RandomWordsState extends State<RandomWords> {
   final _biggerFont = const TextStyle(fontSize: 18.0);
   final _saved = new Set<WordPair>();
 
+  String _capitalize(String s) => s[0].toUpperCase() + s.substring(1);
+
   Widget _buildSuggestions() {
     return new ListView.builder(
         padding: const EdgeInsets.all(16.0),
@@ -40,9 +42,13 @@ class RandomWordsState extends State<RandomWords> {
 
   Widget _buildRow(WordPair pair) {
     final alreadySaved = _saved.contains(pair);
+    String firstName = _capitalize(pair.first);
+    String secondName = _capitalize(pair.second);
+    String bandname = 'The ' + firstName + ' ' + secondName;
+
     return new ListTile(
       title: new Text(
-        pair.asPascalCase,
+        bandname,
         style: _biggerFont,
       ),
       trailing: new Icon(
